@@ -1,0 +1,21 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div><a href="https://www.google.com/" class="navbar-brand">
+            Portal to handbook</a></div>
+
+        <!-- an unordered list of items  -->
+        <ul class="navbar-nav">
+            <!-- li stands for an item in a list -->
+            <!-- href does is it reloads the entire page -->
+            <!-- RouteLink will update partially component we dont want the whole page get refreshed -->
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/welcome/yimin" class ="nav-link">Home</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/employees"     class ="nav-link">Employees</a></li>
+        </ul>
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li><a *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login"  class ="nav-link">Login</a></li>
+            <li><a *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/logout" class ="nav-link">Logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+

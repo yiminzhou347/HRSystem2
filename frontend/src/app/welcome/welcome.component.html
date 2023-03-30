@@ -1,0 +1,17 @@
+<H1>Welcome!</H1>
+    <div class="container">
+        <div class="container">
+            <button (click)="getWelcomeMessageWithParameter()" class="btn btn-success">
+            Get Welcome Message</button>
+          </div>
+        <a routerLink="/employees"><BR>click to forward</a>
+    </div>
+
+   
+
+    <div class="container" *ngIf="nameFromService">
+        <!-- <h2>Your customized Welcome Message</h2> -->
+        Welcome ! {{nameFromService}}<BR>
+        Your id# :  {{idFromService}}<BR>
+        Your Email :  {{emailFromService}}<BR>
+      </div>

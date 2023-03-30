@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="alert alert-warning" *ngIf="emplpyeeForm.dirty && emplpyeeForm.invalid">Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="name.invalid">Name is required</div>
+    <div class="alert alert-warning" *ngIf="email.invalid">Email is required</div>
+    <div class="alert alert-warning" *ngIf="address.invalid">Address is required</div>
+    <div class="alert alert-warning" *ngIf="emplpyeeForm.dirty && phoneNumber.invalid">At least 6 digits for phone number</div>
+    <form (ngSubmit)="!emplpyeeForm.invalid && saveEmployee()" #emplpyeeForm="ngForm">
+        <fieldset>
+            <label>Name</label>
+            <input type="text" class="form-control" name="Name" #name="ngModel" required="required"
+            [(ngModel)]="employee.name">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" name="email" required="required"
+            #email = "ngModel"
+            [(ngModel)]="employee.email">
+        </fieldset >
+        <fieldset class="form-group">
+            <label>PhoneNumber</label>
+            <input type="text" class="form-control" name="phoneNumber" required="required" minlength="6"
+            #phoneNumber = "ngModel"
+            [(ngModel)]="employee.phoneNumber">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>DepartmentId</label>
+            <input type="text" class="form-control" name="departmentId" required="required"
+            [(ngModel)]="employee.departmentId">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Address</label>
+            <input type="text" class="form-control" name="address" required="required"
+            #address = "ngModel"
+            [(ngModel)]="employee.address">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>IsManager</label>
+            <input type="text" class="form-control" name="isManager" required="required"
+            [(ngModel)]="employee.isManager">
+        </fieldset>
+        <fieldset class="form-group">
+            <label>IsAdmin</label>
+            <input type="text" class="form-control" name="isAdmin" required="required"
+            [(ngModel)]="employee.isAdmin">
+        </fieldset>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
