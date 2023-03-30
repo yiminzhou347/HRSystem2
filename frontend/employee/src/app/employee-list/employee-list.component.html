@@ -1,0 +1,55 @@
+<h1>Employee Infos</h1>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container">
+    <!-- border ="4" -->
+    <table class="table">
+        <!-- <caption>Employee List</caption> -->
+        <thead>
+            <!-- thead: table head  -->
+            <!-- tr :table rows  -->
+            <tr>
+                <!-- th table header element  -->
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>PhoneNumber</th>
+                <th>DepartmentId</th>
+                <th>Address</th>
+                <th>IsManager</th>
+                <th>IsAdmin</th>
+                <!-- <th>date</th> -->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <!-- tbody:table body  -->
+        <tbody>
+            <!-- if you want to show a list of employees 
+            you can use *ngFor="let employee of employees" -->
+            <tr *ngFor = " let employee of employees">
+                <!-- td table data cell element  -->
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.phoneNumber}}</td>
+                <td>{{employee.departmentId}}</td>
+                <td>{{employee.address}}</td>
+                <td>{{employee.isManager}}</td>
+                <td>{{employee.isAdmin}}</td>
+                <td><button (click)="deleteEmployee(employee.id)" 
+                    class="btn btn-warning">Delete</button>
+                
+                    <button (click)="updateEmployee(employee.id)" 
+                    class="btn btn-success">Update</button>
+                    </td>
+                <!-- Pipe to convert date into formatted -->
+                <!-- <th>{{employee.date| date | uppercase }}</th> -->
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <button (click)="addEmployee()" 
+                    class="btn btn-success">Add New Employee</button>
+    </div>
+</div>
