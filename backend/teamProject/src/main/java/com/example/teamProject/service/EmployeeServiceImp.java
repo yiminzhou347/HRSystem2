@@ -3,6 +3,7 @@ package com.example.teamProject.service;
 import com.example.teamProject.dao.EmployeeDao;
 import com.example.teamProject.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,6 +41,9 @@ public class EmployeeServiceImp implements EmployeeService{
     }
     @Override
     public Employee addEmployee(Employee employee) {
+        BCryptPasswordEncoder bcrypt =new BCryptPasswordEncoder();
+        String encrypted = bcrypt.encode(employee.getPassword());
+        employee.setPassword(encrypted);
         employeeDao.save(employee);
         return employee;
     }
