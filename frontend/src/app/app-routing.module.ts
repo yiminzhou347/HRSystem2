@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
+import { DepartmentListComponent } from './department-list/department-list.component';
 
 const routes: Routes = [
   //The order about the routers are important, it will match from top to bottom
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'welcome/:name',component:WelcomeComponent, canActivate:[RouteGuardService]},
   {path:'employees',component:EmployeeListComponent, canActivate:[RouteGuardService]},
   {path:'logout',component:LogoutComponent, canActivate:[RouteGuardService]},
+  {path:'departments',component:DepartmentListComponent, canActivate:[RouteGuardService]},
   {path:'employees/id/:id',component:EmployeeComponent, canActivate:[RouteGuardService]},
   // ** means anything, so it can take care of the unmatched routers and redirect them to errorComponent  
   {path:'**',component:ErrorComponent}
